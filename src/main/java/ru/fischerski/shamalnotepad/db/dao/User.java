@@ -31,10 +31,6 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @Enumerated(value = EnumType.STRING)
-    @Column(name = "status")
-    private Status status;
-
     @Column(name = "role")
     private String role;
 
