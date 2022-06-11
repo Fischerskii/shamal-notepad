@@ -36,13 +36,13 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (!(o instanceof User)) return false;
         User user = (User) o;
-        return userId != null && Objects.equals(userId, user.userId);
+        return userId.equals(user.userId) && email.equals(user.email) && login.equals(user.login) && password.equals(user.password) && role.equals(user.role);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(userId, email, login, password, role);
     }
 }
