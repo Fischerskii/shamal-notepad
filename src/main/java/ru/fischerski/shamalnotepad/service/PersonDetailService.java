@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import ru.fischerski.shamalnotepad.security.PersonDetails;
-import ru.fischerski.shamalnotepad.db.dao.User;
+import ru.fischerski.shamalnotepad.db.dao.Person;
 import ru.fischerski.shamalnotepad.db.repository.UserRepository;
 
 import java.util.Optional;
@@ -24,7 +24,7 @@ public class PersonDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Optional<User> person = userRepository.findByLogin(username);
+        Optional<Person> person = userRepository.findByLogin(username);
 
         if (person.isEmpty()) {
             throw new UsernameNotFoundException("User not found");

@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import ru.fischerski.shamalnotepad.db.dao.User;
+import ru.fischerski.shamalnotepad.db.dao.Person;
 import ru.fischerski.shamalnotepad.service.PersonDetailService;
 
 @Component
@@ -21,15 +21,15 @@ public class PersonValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return User.class.equals(clazz);
+        return Person.class.equals(clazz);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
-        User user = (User) o;
+        Person person = (Person) o;
 
         try {
-            personDetailService.loadUserByUsername(user.getLogin());
+            personDetailService.loadUserByUsername(person.getLogin());
         } catch (UsernameNotFoundException ignored) {
             return;
         }

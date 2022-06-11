@@ -6,11 +6,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import ru.fischerski.shamalnotepad.security.PersonDetails;
 import ru.fischerski.shamalnotepad.service.AdminService;
 
 @Controller
 @Slf4j
+@RequestMapping("/")
 public class HelloController {
 
     private final AdminService adminService;

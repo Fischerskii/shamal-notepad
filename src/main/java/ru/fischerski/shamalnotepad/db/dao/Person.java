@@ -1,8 +1,6 @@
 package ru.fischerski.shamalnotepad.db.dao;
 
 import lombok.*;
-import org.hibernate.Hibernate;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Objects;
@@ -12,13 +10,12 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "user")
-public class User {
-
+@Table(name = "person")
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId", nullable = false)
-    private Long userId;
+    @Column(name = "person_id", nullable = false)
+    private Long personId;
 
     @Email
     @Column(name = "email")
@@ -36,13 +33,13 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return userId.equals(user.userId) && email.equals(user.email) && login.equals(user.login) && password.equals(user.password) && role.equals(user.role);
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return personId.equals(person.personId) && email.equals(person.email) && login.equals(person.login) && password.equals(person.password) && role.equals(person.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, email, login, password, role);
+        return Objects.hash(personId, email, login, password, role);
     }
 }

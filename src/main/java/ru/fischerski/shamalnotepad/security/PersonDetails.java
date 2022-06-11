@@ -3,32 +3,32 @@ package ru.fischerski.shamalnotepad.security;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.fischerski.shamalnotepad.db.dao.User;
+import ru.fischerski.shamalnotepad.db.dao.Person;
 
 import java.util.Collection;
 import java.util.Collections;
 
 public class PersonDetails implements UserDetails {
 
-    private final transient User user;
+    private final transient Person person;
 
-    public PersonDetails(User user) {
-        this.user = user;
+    public PersonDetails(Person person) {
+        this.person = person;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(user.getRole()));
+        return Collections.singletonList(new SimpleGrantedAuthority(person.getRole()));
     }
 
     @Override
     public String getPassword() {
-        return this.user.getPassword();
+        return this.person.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.user.getLogin();
+        return this.person.getLogin();
     }
 
     @Override
@@ -51,7 +51,7 @@ public class PersonDetails implements UserDetails {
         return true;
     }
 
-    public User getUser() {
-        return user;
+    public Person getUser() {
+        return person;
     }
 }

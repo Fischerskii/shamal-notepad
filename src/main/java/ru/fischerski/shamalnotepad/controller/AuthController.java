@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.fischerski.shamalnotepad.db.dao.User;
+import ru.fischerski.shamalnotepad.db.dao.Person;
 import ru.fischerski.shamalnotepad.service.RegistrationService;
 import ru.fischerski.shamalnotepad.validator.PersonValidator;
 
@@ -29,21 +29,21 @@ public class AuthController {
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("user") User user) {
+    public String registrationPage(@ModelAttribute("person") Person person) {
         return "auth/registration";
     }
 
     @PostMapping("/registration")
-    public String performRegistration(@ModelAttribute("user") @Valid User user,
+    public String performRegistration(@ModelAttribute("person") @Valid Person person,
                                         BindingResult bindingResult) {
-        personValidator.validate(user, bindingResult);
+        personValidator.validate(person, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "/auth/registration";
         }
 
-        registrationService.register(user);
+        registrationService.register(person);
 
-        return "redirect:/auth/login";
+        return "redirect:/auth/login"; // TODO add new page with sending confirmation code to email after registration
     }
 }
