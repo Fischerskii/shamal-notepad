@@ -1,11 +1,10 @@
-package ru.fischerski.shamalnotepad;
+package ru.fischerski.shamalnotepad.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.fischerski.shamalnotepad.db.dao.User;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -53,6 +52,6 @@ public class PersonDetails implements UserDetails {
     }
 
     public User getUser() {
-        return this.user;
+        return user;
     }
 }

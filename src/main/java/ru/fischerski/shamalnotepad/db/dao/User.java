@@ -2,7 +2,6 @@ package ru.fischerski.shamalnotepad.db.dao;
 
 import lombok.*;
 import org.hibernate.Hibernate;
-import ru.fischerski.shamalnotepad.service.enums.Status;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -13,13 +12,13 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "userId", nullable = false)
+    private Long userId;
 
     @Email
     @Column(name = "email")
@@ -37,13 +36,13 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (!(o instanceof User)) return false;
         User user = (User) o;
-        return id != null && Objects.equals(id, user.id);
+        return userId.equals(user.userId) && email.equals(user.email) && login.equals(user.login) && password.equals(user.password) && role.equals(user.role);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(userId, email, login, password, role);
     }
 }
