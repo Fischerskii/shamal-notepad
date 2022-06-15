@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
-    <link rel="icon" href="../logo/Shamal-notepad.png" type="image/icon type">
+    <link rel="icon" href="../../logo/Shamal-notepad.png" type="image/icon type">
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/auth/registration}" th:object="${user}">
+<form th:method="POST" th:action="@{/templates/html/auth/registration}" th:object="${user}">
     <label for="login">Введите имя пользователя: </label>
     <input type="text" th:field="*{login}" id="login"/>
     <div style="color:red" th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login Error</div>
