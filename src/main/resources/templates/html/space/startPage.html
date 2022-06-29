@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MainPage</title>
+</head>
+<body>
+    <select class="form-control" id="dropDownList">
+        <option value="0">Select space</option>
+        <option value="1">second page</option>
+        <option value="2">third page</option>
+        <option th:each="option : ${options}" th:value="${option}" th:text="${option}"></option>
+    </select>
+</body>
+</html>

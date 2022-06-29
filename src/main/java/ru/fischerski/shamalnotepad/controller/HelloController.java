@@ -12,7 +12,6 @@ import ru.fischerski.shamalnotepad.service.AdminService;
 
 @Controller
 @Slf4j
-@RequestMapping("/")
 public class HelloController {
 
     private final AdminService adminService;
@@ -24,7 +23,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String sayHell() {
-        return "hello";
+        return "/space/hello";
     }
 
     @GetMapping("/showUserInfo")
@@ -33,12 +32,17 @@ public class HelloController {
         PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
         log.info(String.valueOf(personDetails.getUser()));
 
-        return "hello";
+        return "space/hello";
     }
 
     @GetMapping("/admin")
     public String adminPage() {
         adminService.doAdminStuff();
-        return "admin";
+        return "space/admin";
+    }
+
+    @GetMapping("/start")
+    public String startPage() {
+        return "space/startPage";
     }
 }

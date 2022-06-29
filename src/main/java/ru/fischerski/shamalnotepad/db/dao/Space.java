@@ -21,8 +21,8 @@ public class Space {
     @Column(name = "space_id", nullable = false)
     private Long spaceId;
 
-    @Column(name = "document")
-    private String document;
+    @Column(name = "space_name", unique = true)
+    private String spaceName;
 
     @Column(name = "editors")
     private String editors;
@@ -35,11 +35,11 @@ public class Space {
         if (this == o) return true;
         if (!(o instanceof Space)) return false;
         Space space = (Space) o;
-        return Objects.equals(spaceId, space.spaceId) && Objects.equals(document, space.document) && Objects.equals(editors, space.editors) && Objects.equals(viewers, space.viewers);
+        return Objects.equals(spaceId, space.spaceId) && Objects.equals(spaceName, space.spaceName) && Objects.equals(editors, space.editors) && Objects.equals(viewers, space.viewers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(spaceId, document, editors, viewers);
+        return Objects.hash(spaceId, spaceName, editors, viewers);
     }
 }

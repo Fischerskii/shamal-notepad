@@ -2,12 +2,12 @@ package ru.fischerski.shamalnotepad.db.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import ru.fischerski.shamalnotepad.db.dao.Person;
+import ru.fischerski.shamalnotepad.db.dao.Space;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends CrudRepository<Person, Long> {
+public interface SpaceRepository extends CrudRepository<Space, Long> {
 
-    Optional<Person> findByLogin(String login);
+    Optional<Space> findBySpaceName(String spaceName);
 }

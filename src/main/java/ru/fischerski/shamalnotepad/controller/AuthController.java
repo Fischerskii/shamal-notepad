@@ -46,4 +46,18 @@ public class AuthController {
 
         return "redirect:/auth/login"; // TODO add new page with sending confirmation code to email after registration
     }
+
+    @PostMapping("/login")
+    public String performAuthorization(@ModelAttribute("person") Person person, BindingResult bindingResult){
+
+        personValidator.validate(person, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            return "/auth/login";
+        }
+
+
+
+        return "redirect:/space/startPage";
+    }
 }
