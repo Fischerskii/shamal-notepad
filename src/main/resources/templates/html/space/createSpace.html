@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create space page</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/space/createSpace}" th:object="${space}">
+    <label for="spaceName">Введите название пространства: </label>
+    <input type="text" th:field="*{spaceName}" id="spaceName"/>
+<!--    <div style="color:red" th:if="${#fields.hasErrors('spaceName')}" th:errors="*{spaceName}">SpaceName Error</div>-->
+    <br/>
+    <label for="editors">Введите список редакторов (через запятую): </label>
+    <input type="text" th:field="*{editors}" id="editors"/>
+<!--    <div style="color:red" th:if="${#fields.hasErrors('editors')}" th:errors="*{editors}">Add editors Error-->
+    </div>
+    <br/>
+    <label for="viewers">Введите список пользователей с доступом только для просмотра (через запятую): </label>
+    <input type="viwers" th:field="*{viewers}" id="viewers"/>
+<!--    <div style="color:red" th:if="${#fields.hasErrors('viewers')}" th:errors="*{viewers}">Viewers Error</div>-->
+    <br/>
+    <input type="submit" value="Sign up!"/>
+</form>
+
+</body>
+</html>

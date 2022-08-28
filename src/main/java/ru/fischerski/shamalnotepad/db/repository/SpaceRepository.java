@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-//@EnableJpaRepositories("ru.fischerski.shamalnotepad.db.repository")
 public interface SpaceRepository extends CrudRepository<Space, Long> {
 
-    Optional<Space> findBySpaceName(String spaceName);
+    String findBySpaceName(String spaceName);
 
-    @Query("SELECT space_name FROM space")
+    @Query(value = "SELECT space_name FROM space", nativeQuery = true)
     List<String> getAllSpaceName();
+
 }

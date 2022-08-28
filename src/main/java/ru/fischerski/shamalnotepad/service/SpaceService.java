@@ -1,26 +1,13 @@
 package ru.fischerski.shamalnotepad.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ru.fischerski.shamalnotepad.db.dao.Space;
-import ru.fischerski.shamalnotepad.db.repository.SpaceRepository;
+import ru.fischerski.shamalnotepad.dto.SpaceDTO;
 
-@Service
-public class SpaceService {
+import java.util.List;
 
-    private final SpaceRepository spaceRepository;
+public interface SpaceService {
 
-    @Autowired
-    public SpaceService(SpaceRepository spaceRepository) {
-        this.spaceRepository = spaceRepository;
-    }
+    void createSpace(Space space);
 
-    @Transactional
-    public void addSpace(Space space) {
-        space.setSpaceName("First space");
-        space.setEditors("First editor");
-        space.setViewers("First viewer");
-        spaceRepository.save(space);
-    }
+    List<String> findAllSpaceName();
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.fischerski.shamalnotepad.db.dao.Person;
-import ru.fischerski.shamalnotepad.service.RegistrationService;
+import ru.fischerski.shamalnotepad.service.impl.RegistrationServiceImpl;
 import ru.fischerski.shamalnotepad.validator.PersonValidator;
 
 import javax.validation.Valid;
@@ -14,11 +14,11 @@ import javax.validation.Valid;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final RegistrationService registrationService;
+    private final RegistrationServiceImpl registrationService;
     private final PersonValidator personValidator;
 
     @Autowired
-    public AuthController(RegistrationService registrationService, PersonValidator personValidator) {
+    public AuthController(RegistrationServiceImpl registrationService, PersonValidator personValidator) {
         this.registrationService = registrationService;
         this.personValidator = personValidator;
     }
