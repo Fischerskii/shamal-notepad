@@ -48,15 +48,13 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String performAuthorization(@ModelAttribute("person") Person person, BindingResult bindingResult){
+    public String performAuthorization(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult) {
 
         personValidator.validate(person, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "/auth/login";
         }
-
-
 
         return "redirect:/space/startPage";
     }

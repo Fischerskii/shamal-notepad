@@ -6,21 +6,20 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/space/createSpace}" th:object="${space}">
-    <label for="spaceName">Введите название пространства: </label>
-    <input type="text" th:field="*{spaceName}" id="spaceName"/>
-<!--    <div style="color:red" th:if="${#fields.hasErrors('spaceName')}" th:errors="*{spaceName}">SpaceName Error</div>-->
+<form action="#" th:action="@{/space/createSpace}" th:object="${space}" method="post">
+    <label for="spaceName">Space name</label>
+    <input type="text" th:field="*{spaceName}" id="spaceName" placeholder="Enter space name">
+    <span th:if="${#fields.hasErrors('spaceName')}" th:errors="*{spaceName}"></span>
     <br/>
-    <label for="editors">Введите список редакторов (через запятую): </label>
-    <input type="text" th:field="*{editors}" id="editors"/>
-<!--    <div style="color:red" th:if="${#fields.hasErrors('editors')}" th:errors="*{editors}">Add editors Error-->
-    </div>
+    <label for="editors">Editors list</label>
+    <input type="text" th:field="*{editors}" id="editors" placeholder="Enter a list of editors separated by commas">
+    <span th:if="${#fields.hasErrors('editors')}" th:errors="*{editors}"></span>
     <br/>
-    <label for="viewers">Введите список пользователей с доступом только для просмотра (через запятую): </label>
-    <input type="viwers" th:field="*{viewers}" id="viewers"/>
-<!--    <div style="color:red" th:if="${#fields.hasErrors('viewers')}" th:errors="*{viewers}">Viewers Error</div>-->
+    <label for="viewers">Viewers list</label>
+    <input type="text" th:field="*{viewers}" id="viewers" placeholder="Enter a list of viewers separated by commas">
+    <span th:if="${#fields.hasErrors('viewers')}" th:errors="*{viewers}"></span>
     <br/>
-    <input type="submit" value="Sign up!"/>
+    <input type="submit" value="Add Space">
 </form>
 
 </body>

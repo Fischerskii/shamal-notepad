@@ -1,6 +1,7 @@
 package ru.fischerski.shamalnotepad.db.dao;
 
 import lombok.*;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Objects;

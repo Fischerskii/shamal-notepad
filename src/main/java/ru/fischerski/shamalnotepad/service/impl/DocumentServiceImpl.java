@@ -20,9 +20,9 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Transactional
     public void addDocument(Document document) {
-        document.setTitle("First title");
+        /*document.setTitle("First title");
         document.setNote("First node");
-        document.setMode(Mode.NOTE);
+        document.setMode(Mode.NOTE);*/
         documentRepository.save(document);
     }
 }

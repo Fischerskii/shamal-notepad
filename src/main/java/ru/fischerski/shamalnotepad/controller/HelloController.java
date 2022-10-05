@@ -30,7 +30,7 @@ public class HelloController {
     public String showUserInfo() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
-        log.info(String.valueOf(personDetails.getUser()));
+//        log.info(String.valueOf(personDetails.getUser()));
 
         return "space/hello";
     }
