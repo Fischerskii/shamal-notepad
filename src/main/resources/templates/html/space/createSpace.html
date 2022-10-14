@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create space page</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/space/createSpace}" th:object="${space}" method="post">
+    <label for="spaceName">Space name</label>
+    <input type="text" th:field="*{spaceName}" id="spaceName" placeholder="Enter space name">
+    <span th:if="${#fields.hasErrors('spaceName')}" th:errors="*{spaceName}"></span>
+    <br/>
+    <label for="editors">Editors list</label>
+    <input type="text" th:field="*{editors}" id="editors" placeholder="Enter a list of editors separated by commas">
+    <span th:if="${#fields.hasErrors('editors')}" th:errors="*{editors}"></span>
+    <br/>
+    <label for="viewers">Viewers list</label>
+    <input type="text" th:field="*{viewers}" id="viewers" placeholder="Enter a list of viewers separated by commas">
+    <span th:if="${#fields.hasErrors('viewers')}" th:errors="*{viewers}"></span>
+    <br/>
+    <input type="submit" value="Add Space">
+</form>
+
+</body>
+</html>

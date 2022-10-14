@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Space created</title>
+</head>
+
+<body>
+<div class="container">
+
+</div>
+<form name="spaceCreated" method="post" action="/process_login">
+
+</form>
+<select class="form-control" id="dropDownList">
+    <option value="0">select option</option>
+    <option th:each="spaceName : ${spaceNames}" th:value="${spaceName}" th:text="${spaceName}"></option>
+</select>
+</body>
+</html>

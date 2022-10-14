@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+#  liquibase:
+#    change-log: classpath:db/changelog/db.changelog-master.xml
+  thymeleaf:
+    prefix: classpath:/templates/html/
+  datasource:
+    url: jdbc:postgresql://localhost:5433/shamal
+    username: account
+    password: account
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
