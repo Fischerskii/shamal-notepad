@@ -1,7 +1,7 @@
 package ru.fischerski.shamalnotepad.mapper;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+//import org.mapstruct.Mapper;
+//import org.mapstruct.Mapping;
 import ru.fischerski.shamalnotepad.db.dao.Space;
 import ru.fischerski.shamalnotepad.dto.SpaceDTO;
 

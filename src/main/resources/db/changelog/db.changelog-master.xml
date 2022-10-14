@@ -1,4 +1,3 @@
-<!--
 <databaseChangeLog
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
@@ -15,8 +14,8 @@
         <createSequence sequenceName="person_id_seq" schemaName="person"/>
     </changeSet>
 
-    <changeSet id="" author="">
+    <changeSet id="create-person-address-id-seq" author="fischerski">
         <createTable tableName="person" schemaName="">
             <column name=""></column>
         </createTable>
-    </changeSet>-->
+    </changeSet>

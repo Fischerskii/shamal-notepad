@@ -25,7 +25,7 @@ public class SpaceController {
 
     @GetMapping("/selectSpace")
     public String selectPage(Model model) {
-//        log.info("space name list: {}", spaceRepository.getAllSpaceName());
+        log.info("space name list: {}", spaceRepository.getAllSpaceName());
         model.addAttribute("spaceNames", spaceRepository.getAllSpaceName());
         return "space/selectSpace";
     }

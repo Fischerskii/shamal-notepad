@@ -10,6 +10,6 @@ public class AdminService {
 
     @PreAuthorize("hasRole('ROLE_ADMIN') and hasRole('ROLE_SOME_OTHER')")
     public void doAdminStuff() {
-//        log.info("Only admin here");
+        log.info("Only admin here");
     }
 }
